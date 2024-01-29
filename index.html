@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Mark Joseph | Shopify Theme Developer</title>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="assets/logo.webp" alt="Logo">
+    </div>
+     <!-- Mobile menu button -->
+     <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <!-- Navigation menu for desktop -->
+    <nav>
+      <ul class="desktop-menu">
+        <li><a href="#about-me">About Me</a></li>
+        <li><a href="#my-work">My Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Mobile menu - initially hidden -->
+  <div class="mobile-menu-container" id="mobileMenuContainer">
+    <div class="mobile-menu-header">
+      <span onclick="toggleMobileMenu()">X</span>
+    </div>
+    <ul class="mobile-menu">
+      <li><a href="#about-me" onclick="toggleMobileMenu()">About Me</a></li>
+      <li><a href="#my-work" onclick="toggleMobileMenu()">My Work</a></li>
+      <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
+    </ul>
+  </div>
+
+  <section class="content">
+    <div id="typing-container">
+      <div class="background"></div>
+      <h3 id="typing-text">
+        Hi, I'm Mark. I'm a Shopify Theme Developer based in Sydney.<br>
+        I partner with agencies to bring unique ideas to life.
+      </h3>
+    </div>
+  </section>
+
+  <div class="announcement">
+  <div class="announcement-bar">
+    <p>Spots for Febuary are nearly booked, reach out to me if you need to get work done! Spots for Febuary are nearly booked, reach out to me if you need to get work done! Spots for Febuary are nearly booked, reach out to me if you need to get work done! </p>
+  </div>
+</div>
+ 
+<section id="about-me" class="about-me-container">
+  <div class="background-aboutme"></div>
+  <div class="about-me animate-on-scroll">
+  <h2>About Me</h2>
+  <p class="paragraph1">With a passion for ecommerce I began my journey building dropshipping sites with Shopify.</p>
+  <p class="paragraph2">Often I'd become frustrated when trying to make changes to the theme layout.</p>
+  <p class="paragraph3">I began learning <img src="assets/code-logo.jpg" class="code-logo" alt="HTML Logo"><img src="assets/liquid.png" class="liquid-logo" alt="Liquid Logo"> to improve my websites.</p>
+  <p class="paragraph4">This genuine curiosity then fuelled me to become a Shopify Theme Developer.</p>
+    <img src="assets/mark-removebg-preview.png" class="mark-pic animate-on-scroll" alt="mark" loading="lazy">
+  </div>
+</section>
+
+<section id="my-work" class="my-work-container">
+  <div class="background-mywork"></div>
+  <div class="my-work animate-on-scroll">
+    <h2>My Work</h2>
+    <div class="work-carousel">
+      <div class="carousel-container">
+        <div class="carousel-slide">
+          <img src="image1.jpg" alt="Project 1">
+        </div>
+        <div class="carousel-slide">
+          <img src="image2.jpg" alt="Project 2">
+        </div>
+        <div class="carousel-slide">
+          <img src="image3.jpg" alt="Project 3">
+        </div>
+      </div>
+      <div class="carousel-btns">
+        <button class="carousel-btn next-btn" onclick="prevSlide()">❮</button>
+        <button class="carousel-btn prev-btn" onclick="nextSlide()">❯</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="contact" class="contact-form">
+  <div class="contact-box animate-on-scroll">
+    <h2>Contact</h2>
+    <p>Need a developer for your next project? Let's create something great. Get in touch.</p>
+
+    <form action="https://formspree.io/f/mnqejznk" method="POST" redirect="false" onload="handleFormSubmission()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2024 Mark Joseph. All rights reserved.</p>
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
