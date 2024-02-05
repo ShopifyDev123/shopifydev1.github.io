@@ -356,27 +356,117 @@ nav a:hover::before {
 
 /* MEDIA QUERY CONTENT SECTION */
 
-@media screen and (max-width:270px) {
+@media screen and (max-width: 315px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .content-left,
+  .content-right {
+    width: 100%;
+  }
+
+  .content-left::after {
+    content: none; 
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+  }
 
   .image-slideshow {
-    margin-bottom: -70px;
-    top: 10%;
-    height: 150vh;
+    height: 50vh;
+    background-color: lightgray;
+  }
+   
+  .image-slideshow .slideshow img {
+    height: auto; 
+    overflow: hidden;
+  }
+
+  .new-slideshow {
+    margin-top: 20px; 
+  }
+
+  #typing-container {
+    text-align: center;
   }
 
   #typing-text {
     text-align: center;
       display: block;
       position: relative;
-      top: 10%;
+      top: 20%;
       left: 40%;
       transform: translate(-50%, -50%);
-      font-size: 20px; 
-      margin: 20px; 
+      font-size: 20px !important; 
+      margin: 0; 
     }
+
+  .content-left::after {
+    content: none; 
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 440px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .content-left,
+  .content-right {
+    width: 100%;
+  }
+
+  .content-left::after {
+    content: none; 
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+  }
+
+  .image-slideshow {
+    height: 50vh;
+    background-color: lightgray;
+  }
+   
+  .image-slideshow .slideshow img {
+    max-width: 60% !important;
+    height: auto; 
+    overflow: hidden;
+  }
+
+  .new-slideshow {
+    margin-top: 20px; 
+  }
+
+  #typing-container {
+    text-align: center;
+  }
+
+  #typing-text {
+    text-align: center;
+      display: block;
+      position: relative;
+      top: 10% !important;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      font-size: 20px !important; 
+      margin: 0; 
+    }
+  
+
+  .content-left::after {
+    content: none; 
+  }
+}
+
+@media screen and (max-width: 650px) {
   .split-container {
     flex-direction: column;
   }
@@ -419,10 +509,70 @@ nav a:hover::before {
     text-align: center;
       display: block;
       position: relative;
-      top: 10%;
+      top: 20%;
       left: 40%;
-      transform: translate(-50%, -50%);
-      font-size: 20px; 
+      transform: translate(-50%, -30%) !important;
+      font-size: 30px; 
+      margin: 0; 
+    }
+  
+
+  .content-left::after {
+    content: none; 
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .content-left,
+  .content-right {
+    width: 100%;
+  }
+
+  .content-left::after {
+    content: none; 
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+  }
+
+  .image-slideshow {
+    height: 50vh;
+    background-color: lightblue;
+    border-top: 1px solid black;
+  }
+   
+  .image-slideshow .slideshow img {
+    border-radius: 10px;
+    max-width: 50%; 
+    height: auto; 
+    overflow: hidden;
+  }
+
+  .new-slideshow {
+    margin-top: 20px; 
+  }
+
+  #typing-container {
+    text-align: center;
+  }
+
+  #typing-text {
+    text-align: center;
+      display: block;
+      position: relative;
+      top: 20%;
+      left: 40%;
+      transform: translate(-50%, -70%);
+      font-size: 28px; 
       margin: 0; 
     }
   
@@ -881,7 +1031,7 @@ button:hover {
 
 @media screen and (max-width: 1200px) {
   .CSSgal {
-   height: 50vh;
+   height: 60vh;
   }
 
   .CSSgal .slider {
@@ -892,6 +1042,22 @@ button:hover {
   .CSSgal .slider h2 {
     font-size: 2.5em;
     margin-top: 30vh;
+  }
+
+  .CSSgal .slider div[style*="assets/alche.jpg.png"] {
+    background-position: center left 20% !important; 
+  }
+  
+  .CSSgal .slider div[style*="assets/beardedman.desktop.png"] {
+    background-color: center 40% !important;
+  }
+  
+  .CSSgal .slider div[style*="assets/Curology.desktop,png.png"] {
+    background-position: center 10% !important; 
+  }
+
+  .CSSgal .slider div[style*="assets/kakodadesktop.png"] {
+    background-position: center 20% !important; 
   }
 }
 
