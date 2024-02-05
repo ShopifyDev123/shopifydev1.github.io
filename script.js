@@ -1,35 +1,33 @@
 // Typewriter Effect
 document.addEventListener("DOMContentLoaded", function() {
-  // Get the first element with the class "content"
-  var firstContentSection = document.querySelector(".content");
+  // Get all elements with the class "typewriter-text"
+  var typingTextElements = document.querySelectorAll(".typewriter-text");
 
-  if (firstContentSection) {
-    // Get the element that contains the typing text within the first section
-    var typingTextElement = firstContentSection.querySelector("#typing-text");
+  // Set the typing speed in milliseconds (lower value means faster typing)
+  var typingSpeed = 45; // Adjust this value to make it faster
 
-    // Set the typing speed in milliseconds (lower value means faster typing)
-    var typingSpeed = 45; // Adjust this value to make it faster
+  // Function to simulate the typing effect
+  function typeWriter(element) {
+    var text = element.innerText; // Get the text from the element
+    element.innerHTML = ""; // Clear the existing text
 
-    // Function to simulate typing effect
-    function typeWriter() {
-      var text = typingTextElement.innerText; // Get the text from the element
-      typingTextElement.innerHTML = ""; // Clear the existing text
-
-      var i = 0;
-      function type() {
-        if (i < text.length) {
-          typingTextElement.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(type, typingSpeed);
-        }
+    var i = 0;
+    function type() {
+      if (i < text.length) {
+        element.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, typingSpeed);
       }
-      type();
     }
-
-    // Call the typeWriter function
-    typeWriter();
+    type();
   }
+
+  // Apply the typewriter effect to each element with class "typewriter-text"
+  typingTextElements.forEach(function(element) {
+    typeWriter(element);
+  });
 });
+
 
 // Mobile Menu
 
@@ -78,34 +76,32 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add additional actions or modifications to your page as needed
   }
 
-// Slide
 
-let slideIndex = 1;
-showSlides(slideIndex);
+// JavaScript code for image slideshow
+let globalSlideIndex = 0;
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+(function () {
+  function showSlides() {
+    let i;
+    const slides = document.getElementsByClassName("slideshow")[0].getElementsByTagName("img");
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
 
-function showSlides(n) {
-  let i;
-  const slides = document.getElementsByClassName("slides")[0].getElementsByTagName("img");
-  
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  
-  if (n < 1) {
-    slideIndex = slides.length;
+    globalSlideIndex++;
+
+    if (globalSlideIndex > slides.length) {
+      globalSlideIndex = 1;
+    }
+
+    slides[globalSlideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 2000); // Change 2000 to the desired interval in milliseconds
   }
 
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  
-  slides[slideIndex - 1].style.display = "block";
-}
+  document.addEventListener("DOMContentLoaded", function () {
+    showSlides();
+  });
+})();
+
+

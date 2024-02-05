@@ -21,8 +21,8 @@
     <!-- Navigation menu for desktop -->
     <nav>
       <ul class="desktop-menu">
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#my-work">My Work</a></li>
+        <li><a href="#about-me">About</a></li>
+        <li><a href="#my-work">Work</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -41,45 +41,90 @@
   </div>
 
   <section class="content">
-    <div id="typing-container">
-      <div class="background"></div>
-      <h3 id="typing-text">
-        Hi, I'm Mark. I'm a Shopify Theme Developer based in Sydney.<br>
-        I partner with agencies to bring unique ideas to life.
-      </h3>
+    <div class="split-container">
+      <!-- Typewriter Container -->
+      <div id="typing-container" class="content-left">
+        <div class="background"></div>
+        <h3 id="typing-text" class="typewriter-text">
+          Hi, I'm Mark. I'm a Shopify Developer based in Sydney.<br>
+          I partner with agencies to bring unique ideas to life.
+        </h3>
+      </div>
+  
+      <!-- Image Slideshow Container -->
+      <div class="image-slideshow content-right">
+        <div id="new-slideshow" class="new-slideshow">
+          <div class="slideshow animate-on-scroll">
+            <img src="assets/emma.jpg" alt="New Slide 1">
+            <img src="assets/nike (1).jpg" alt="New Slide 2">
+            <img src="assets/maekup.jpg" alt="New Slide 3">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <div class="announcement">
   <div class="announcement-bar">
-    <p>Spots for Febuary are nearly booked, reach out to me if you need to get work done! Spots for Febuary are nearly booked, reach out to me if you need to get work done! Spots for Febuary are nearly booked, reach out to me if you need to get work done! </p>
+    <p> WEB DESIGN | SHOPIFY | ECOMMERCE&nbsp;&nbsp;&nbsp;&nbsp;WEB DESIGN | SHOPIFY | ECOMMERCE&nbsp;&nbsp;&nbsp;&nbsp;WEB DESIGN | SHOPIFY | ECOMMERCE&nbsp;&nbsp;&nbsp;&nbsp;WEB DESIGN | SHOPIFY | ECOMMERCE&nbsp;&nbsp;&nbsp;&nbsp;WEB DESIGN | SHOPIFY | ECOMMERCE&nbsp;&nbsp;&nbsp;&nbsp;WEB DESIGN | SHOPIFY | ECOMMERCE&nbsp;&nbsp;&nbsp;&nbsp;WEB DESIGN | SHOPIFY | ECOMMERCE&nbsp;&nbsp;&nbsp;&nbsp;WEB DESIGN | SHOPIFY | ECOMMERCE&nbsp;&nbsp;&nbsp;&nbsp; </p>
   </div>
 </div>
  
-<section id="about-me" class="about-me-container">
-  <div class="background-aboutme"></div>
-  <div class="about-me animate-on-scroll">
-  <h2>About Me</h2>
-  <p class="paragraph1">With a passion for ecommerce I began my journey building dropshipping sites with Shopify.</p>
-  <p class="paragraph2">Often I'd become frustrated when trying to make changes to the theme layout.</p>
-  <p class="paragraph3">I began learning <img src="assets/code-logo.jpg" class="code-logo" alt="HTML Logo"><img src="assets/liquid.png" class="liquid-logo" alt="Liquid Logo"> to improve my websites.</p>
-  <p class="paragraph4">This genuine curiosity then fuelled me to become a Shopify Theme Developer.</p>
-    <img src="assets/mark-removebg-preview.png" class="mark-pic animate-on-scroll" alt="mark" loading="lazy">
+<section id="about-me" class="about-me-container animate-on-scroll">
+  <div class="split-container">
+    <!-- Image Container -->
+    <div class="image-container content-left animate-on-scroll">
+      <img src="assets/mark-removebg-preview.png" class="mark-pic animate-on-scroll" alt="mark" loading="lazy">
+    </div>
+    
+    <!-- Text Container -->
+    <div class="text-container content-right animate-on-scroll">
+      <h3>About Me</h3>
+      <p>With a passion for ecommerce, I started my journey building dropshipping sites with Shopify. Often I'd become frustrated when trying to make changes to the theme layout. I began learning code to improve my websites. This genuine curiosity then fueled me to become a Shopify Developer.</p>
+    </div>
   </div>
 </section>
 
+<div id="my-work" class="CSSgal">
 
-<div id="my-work" class="slideshow-container">
-  <h2>My Work</h2>
-  <div class="slides animate-on-scroll">
-    <img src="assets/alche.webp" alt="Alche Image">
-    <img src="assets/curologyyes.webp" alt="Curology Image">
-    <img src="assets/beardedyes.webp" alt="Bearded Image">
+  <!-- Don't wrap targets in parent -->
+  <s id="s1"></s> 
+  <s id="s2"></s>
+  <s id="s3"></s>
+  <s id="s4"></s>
+
+
+  <div class="slider animate-on-scroll">
+    <div style="background:url('assets/alche.jpg.png') center center / cover;">
+      <h2> <b></b> </h2>
+      <p></p>
+    </div>
+    <div style="background:url('assets/beardedman.desktop.png') center center / cover;">
+      <h2></h2>
+    </div>
+    <div style="background:url('assets/Curology.desktop,png.png') center center / cover;">
+      <h2></h2>
+    </div>
+    <div style="background:url('assets/kakodadesktop.png') center center / cover;">
+      <h2></h2>
+    </div>
   </div>
-  <div class="button-container">
-  <button class="prev" onclick="plusSlides(-1)">&#10094; </button>
-  <button class="next" onclick="plusSlides(1)">&#10095;</button>
+
+  
+  <div class="prevNext">
+    <div><a href="#s4"></a><a href="#s2"></a></div>
+    <div><a href="#s1"></a><a href="#s3"></a></div>
+    <div><a href="#s2"></a><a href="#s4"></a></div>
+    <div><a href="#s3"></a><a href="#s1"></a></div>
   </div>
+
+  <div class="bullets">
+    <a href="#s1"></a>
+    <a href="#s2"></a>
+    <a href="#s3"></a>
+    <a href="#s4"></a>
+  </div>
+
 </div>
 
 
@@ -107,8 +152,6 @@
 <footer>
   <p>&copy; 2024 Mark Joseph. All rights reserved.</p>
 </footer>
-
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+* { box-sizing: border-box; }
+
 body, html {
   height: 100%;
   margin: 0;
@@ -36,28 +38,23 @@ header {
   animation: fadeIn 1s ease-in-out forwards;
 }
 
-header:hover {
-  background-color: #212121;
-  color: white;
-}
-
-.logo, nav {
-  opacity: 0;
-  animation: slideIn 1s ease-in-out forwards;
-}
-
  .logo img {
   max-height: 50px;
 }
 
-.logo:hover {
-  filter: invert(1);
+nav ul li a[href="#contact"] {
+  border: 2px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 350px) {
-  .logo img {
-    display: none;
-  }
+nav ul li a[href="#contact"]:hover {
+  border: 2px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: orange;
 }
 
 nav ul {
@@ -65,10 +62,11 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
+  margin-right: 200px;
 }
 
 nav li {
-  margin-right: 15px;
+  margin-right: 40px;
   font-size: 20px;
   position: relative;
   opacity: 0;
@@ -85,7 +83,7 @@ nav a {
 }
 
 nav a:hover {
-  color: white;
+
 }
 
 nav a::before {
@@ -93,8 +91,8 @@ nav a::before {
   position: absolute;
   width: 0;
   height: 2px;
-  color: white;
-  background-color: #fff;
+  color: black;
+  background-color: black;
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
@@ -107,6 +105,22 @@ nav a:hover::before {
 .mobile-menu-container {
   display: none;
 }
+
+
+
+/* NAV MENU MOBILE */
+
+
+/* MAX WIDTH 300px */
+
+@media screen and (max-width: 300px ) {
+  .logo img {
+    width: 150px;
+  }
+}
+
+
+/* MAX WIDTH 793px */
 
 @media screen and (max-width: 793px) {
   .desktop-menu {
@@ -159,13 +173,6 @@ nav a:hover::before {
     cursor: pointer;
   }
 
-  .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 6px 0;
-  }
-
   .mobile-menu a {
     color: #212121;
     text-decoration: none;
@@ -194,12 +201,44 @@ nav a:hover::before {
   }
 }
 
+/* MAX WIDTH NAV MENU 890px */
+
+@media screen and (max-width: 890px) {
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 6px 0;
+  }
+
+  nav ul {
+    display: none;
+  }
+  
+  nav ul li a[href="#contact"] {
+    border: none;
+  }
+
+  nav ul li a[href="#contact"]:hover {
+    border: none;
+    background-color: none;
+  }
+}
+
+
+/* CONTENT SECTION */
+
 #typing-text {
   font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace;
   white-space: pre-line;
 }
 
+.typewriter-text {
+  width: 80%; 
+}
+
 .content {
+  border: 1px solid black;
   text-align: center;
   position: relative;
   font-size: 30px;
@@ -208,9 +247,57 @@ nav a:hover::before {
   letter-spacing: 1px;
   height: 80vh; 
   display: flex;
+  overflow: hidden;
+}
+
+.content-left {
+  width: 50%; 
+  float: left;
+  display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  text-align: center;
+}
+
+.content-right {
+  width: 50%; 
+  float: left;
+  text-align: center;
+}
+
+
+.content-left::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 2px solid black;
+}
+
+.split-container {
+  width: 100%; 
+}
+
+.slideshow img {
+  display: inline-block; 
+  margin: 0 auto; 
+
+}
+
+.image-slideshow {
+  background-color: lightblue;
+}
+
+.image-slideshow .slideshow img {
+  display: none;
+  margin-top: 40px;
+  border: 0.5px solid black;
+  background-color: lightblue !important;
+}
+
+.image-slideshow .slideshow img:first-child {
+  display: block;
 }
 
 .background {
@@ -267,98 +354,217 @@ nav a:hover::before {
   }
 }
 
-.background-aboutme {
-  background-color: #212121;
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -10000; 
+/* MEDIA QUERY CONTENT SECTION */
+
+@media screen and (max-width:270px) {
+
+  .image-slideshow {
+    margin-bottom: -70px;
+    top: 10%;
+    height: 150vh;
+  }
+
+  #typing-text {
+    text-align: center;
+      display: block;
+      position: relative;
+      top: 10%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      font-size: 20px; 
+      margin: 20px; 
+    }
 }
 
-.about-me {
-  padding: 10px;
-  line-break: auto;
-  font-size: 20px;
+@media screen and (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .content-left,
+  .content-right {
+    width: 100%;
+  }
+
+  .content-left::after {
+    content: none; 
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+  }
+
+  .image-slideshow {
+    height: 50vh;
+    background-color: lightgray;
+  }
+   
+  .image-slideshow .slideshow img {
+    max-width: 100%; 
+    height: auto; 
+    overflow: hidden;
+  }
+
+  .new-slideshow {
+    margin-top: 20px; 
+  }
+
+  #typing-container {
+    text-align: center;
+  }
+
+  #typing-text {
+    text-align: center;
+      display: block;
+      position: relative;
+      top: 10%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      font-size: 20px; 
+      margin: 0; 
+    }
+  
+
+  .content-left::after {
+    content: none; 
+  }
+}
+
+/* ABOUT ME SECTION */
+
+
+.about-me-container {
   text-align: center;
-  color: white;
+  padding: 50px 300px;
+  background-color: lightgray;  
+  border-bottom: 1px solid black;
+}
+
+.split-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.image-container {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-.about-me.animated {
+.image-container.animated {
   opacity: 1;
   transform: translateY(0);
-}
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}  
 
-.about-me h2,
-.about-me p {
+.text-container {
+  margin-left: 100px;
   opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-.about-me h2 {
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 0.5s; 
+.text-container.animated {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Adjust the transition duration */
+}
+ 
+.image-container img {
+  max-width: 100%; 
+  border-radius: 5%;
 }
 
-.about-me .paragraph1 {
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 1s; 
+.text-container {
+  margin-right: 200px;
 }
 
-.about-me .paragraph2 {
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 1.5s; 
+.text-container h3 {
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
-.about-me .paragraph3 {
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 2s; 
-}
-
-.about-me .paragraph4 {
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 2.5s; 
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.text-container p {
+  font-size: 20px;
 }
 
 .mark-pic {
-  border-bottom-right-radius: 5%;
-  border-bottom-left-radius: 5%;
-  width: 150px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  width: 200px;
+  height: auto;
+  border: 2px solid black;
+  background-color: lightgreen;
+  z-index: 1;
 }
 
-.mark-pic.animated {
-    opacity: 1;
-    transform: translateY(0);
+.code-logo{
+  width: 50px;
 }
+
+.liquid-logo {
+  width: 20px;
+}
+
+/* ABOUT ME SECTION MEDIA QUERIES */
+
+@media screen and (max-width: 1700px) {
+  .about-me-container {
+    padding: 50px 150px;
+  }
+
+  .text-container {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .about-me-container {
+    padding: 50px 100px;
+  }
+
+  .text-container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-me-container {
+    padding: 50px 20px;
+  }
+
+  .split-container {
+    flex-direction: column;
+  }
+
+  .text-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .mark-pic {
+    width: 150px;
+  }
+
+  .text-container h3 {
+    font-size: 30px;
+  }
+
+  .text-container p {
+    font-size: 16px;
+  }
+}
+
+
+/* Announcement Bar */
 
 .announcement {
-  background-color: orange;
+  border-bottom: 1px solid black;
   overflow: hidden;
 }
 
@@ -369,7 +575,7 @@ nav a:hover::before {
   color: black;
   position: relative;
   overflow: visible;
-  animation: slideAnnouncement 10s linear infinite;
+  animation: slideAnnouncement 60s linear infinite;
 }
 
 .announcement-bar:hover {
@@ -387,19 +593,12 @@ nav a:hover::before {
   }
 }
 
-@media screen and (max-width: 1800px) {
-  .announcement-bar {
-    padding: 5px; 
-    white-space: nowrap;
-    animation: slideAnnouncement 10s linear infinite;
-  }
-}
 
 @media screen and (max-width: 768px) {
   .announcement-bar {
     padding: 5px; 
     white-space: nowrap;
-    animation: slideAnnouncement 10s linear infinite;
+    animation: slideAnnouncement 60s linear infinite;
   }
 }
 
@@ -424,25 +623,13 @@ nav a:hover::before {
   }
 }
 
-.about-me img.code-logo {
-  max-width: 100px; 
-  max-height: 100px;
-}
-
-.about-me img.liquid-logo {
-  max-width: 60px; 
-  max-height: 35px;
-}
-
-.about-me img.code-logo:hover,
-.about-me img.liquid-logo:hover {
-  transform: rotate(-5deg); 
-}
+/* Contact Form */
 
 .contact-form {
+  border-top: 1px solid black;
   text-align: center;
   padding: 50px 20px;
-  background-color: lightgray;  
+  background-color: lightseagreen;  
 }
 
 .contact-box.animated {
@@ -507,68 +694,228 @@ button {
 }
 
 button:hover {
-  color: white;
   opacity: 1;
   transform: scale(1.1);
 }
 
-#my-work {
-  background-color: lightgray;
-  padding: 20px;
-  text-align: center;
-  cursor: pointer;
-}
+/* My Work */
 
-.slideshow-container {
-  font-size: 20px;
-}
-
-.slides {
-  display: flex;
-  overflow: hidden;
-  justify-content: center; /* Center the images */
+.slider {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out; 
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-.slides.animated {
+
+.slider.animated {
   opacity: 1;
   transform: translateY(0);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.CSSgal {
+  position: relative;
+  overflow: hidden;
+  height: 70vh; /* Or set a fixed height */
+  background-color: lightsalmon;
+}
+
+/* SLIDER */
+
+.CSSgal .slider {
+  margin-top: 100px;
+  margin-left: 20px;
+  width: 600px; /* Set your desired width */
+  height: 400px; /* Set your desired height */
+  white-space: nowrap;
+  font-size: 0;
+  transition: 0.8s;
+}
+
+/* SLIDES */
+
+.CSSgal .slider > * {
+  font-size: 1rem;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  height: 100%;
+  width: 100%;
+  background: none 50% no-repeat;
+  background-size: cover;
+  border: 1px solid black;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+/* PREV/NEXT, CONTAINERS & ANCHORS */
+
+.CSSgal .prevNext {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  width: 100%;
+  height: 0;
+}
+
+.CSSgal .prevNext > div+div {
+  visibility: hidden; /* Hide all but first P/N container */
+}
+
+.CSSgal .prevNext a {
+  background: #fff;
+  position: absolute;
+  width:       60px;
+  height:      60px;
+  line-height: 60px; /* If you want to place numbers */
+  text-align: center;
+  opacity: 0.7;
+  -webkit-transition: 0.3s;
+          transition: 0.3s;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 0;
+}
+.CSSgal .prevNext a:hover {
+  opacity: 1;
+}
+.CSSgal .prevNext a+a {
+  left: auto;
+  right: 0;
+}
+
+/* NAVIGATION */
+
+.CSSgal .bullets {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+}
+.CSSgal .bullets > a {
+  display: inline-block;
+  width:       30px;
+  height:      30px;
+  line-height: 30px;
+  text-decoration: none;
+  text-align: center;
+  background: rgba(255, 255, 255, 1);
+  -webkit-transition: 0.3s;
+          transition: 0.3s;
+}
+.CSSgal .bullets > a+a {
+  background: rgba(255, 255, 255, 0.5); /* Dim all but first */
+}
+.CSSgal .bullets > a:hover {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* NAVIGATION BUTTONS */
+/* ALL: */
+.CSSgal >s:target ~ .bullets >* {      background: rgba(255, 255, 255, 0.5);}
+/* ACTIVE */
+#s1:target ~ .bullets >*:nth-child(1) {background: rgba(255, 255, 255,   1);}
+#s2:target ~ .bullets >*:nth-child(2) {background: rgba(255, 255, 255,   1);}
+#s3:target ~ .bullets >*:nth-child(3) {background: rgba(255, 255, 255,   1);}
+#s4:target ~ .bullets >*:nth-child(4) {background: rgba(255, 255, 255,   1);}
+/* More slides? Add here more rules */
+
+/* PREV/NEXT CONTAINERS VISIBILITY */
+/* ALL: */
+.CSSgal >s:target ~ .prevNext >* {      visibility: hidden;}
+/* ACTIVE: */
+#s1:target ~ .prevNext >*:nth-child(1) {visibility: visible;}
+#s2:target ~ .prevNext >*:nth-child(2) {visibility: visible;}
+#s3:target ~ .prevNext >*:nth-child(3) {visibility: visible;}
+#s4:target ~ .prevNext >*:nth-child(4) {visibility: visible;}
+/* More slides? Add here more rules */
+
+/* SLIDER ANIMATION POSITIONS */
+
+#s1:target ~ .slider {transform: translateX(   0%); -webkit-transform: translateX(   0%);}
+#s2:target ~ .slider {transform: translateX(-100%); -webkit-transform: translateX(-100%);}
+#s3:target ~ .slider {transform: translateX(-200%); -webkit-transform: translateX(-200%);}
+#s4:target ~ .slider {transform: translateX(-300%); -webkit-transform: translateX(-300%);}
+/* More slides? Add here more rules */
+
+
+/* YOU'RE THE DESIGNER! 
+   ____________________
+   All above was mainly to get it working :)
+   CSSgal CUSTOM STYLES / OVERRIDES HERE: */
+
+.CSSgal{
+  color: #fff;  
+  text-align: center;
+}
+.CSSgal .slider h2 {
+  margin-top: 40vh;
+  font-weight: 200;
+  letter-spacing: -0.06em;
+  word-spacing: 0.2em;
+  font-size: 3em;
+}
+.CSSgal a {
+  border-radius: 50%;
+  margin: 0 3px;
+  color: rgba(0,0,0,0.8);
+  text-decoration: none;
+}
+
+.CSSgal .slider div[style*="assets/alche.jpg.png"] {
+  background-position: center left 30% !important; 
+}
+
+/* Target the second slide based on its background URL */
+.CSSgal .slider div[style*="assets/beardedman.desktop.png"] {
+
+}
+
+.CSSgal .slider div[style*="assets/Curology.desktop,png.png"] {
+  background-position: center 20% !important; 
+}
+
+/* CSSGAL MEDIA QUERIES */
+
+@media screen and (max-width: 1200px) {
+  .CSSgal {
+   height: 50vh;
   }
 
-.slides img {
-  max-width: 100%; /* Set maximum width for images */
-  height: auto;
-  display: none;
+  .CSSgal .slider {
+    width: 500px;
+    height: 300px;
+  }
+
+  .CSSgal .slider h2 {
+    font-size: 2.5em;
+    margin-top: 30vh;
+  }
 }
 
-button {
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
+@media screen and (max-width: 992px) {
+  .CSSgal .slider {
+    width: 400px;
+    height: 250px;
+  }
+
+  .CSSgal .slider h2 {
+    font-size: 2em;
+    margin-top: 20vh;
+  }
 }
 
-.button-container {
-  display: flex;
-  justify-content: space-between; /* Adjust as needed */
-  margin-top: 10px;
+@media screen and (max-width: 768px) {
+  .CSSgal .slider {
+    width: 300px;
+    height: 200px;
+  }
+
+  .CSSgal .slider h2 {
+    font-size: 1.5em;
+    margin-top: 10vh;
+  }
 }
-
-.prev, .next {
-  background-color: #212121;
-  color: lightgray;
-  border: 1px solid #ccc;
-}
-
-.prev:hover, .next:hover {
-  background-color: orange;
-}
-
-.slideIndex {
-  display: none;
-}
-
-
 
